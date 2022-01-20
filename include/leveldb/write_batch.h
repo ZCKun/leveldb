@@ -30,6 +30,7 @@ namespace leveldb {
 
 class Slice;
 
+//! const 方法线程安全, 其他的都不是线程安全
 class LEVELDB_EXPORT WriteBatch {
  public:
   class LEVELDB_EXPORT Handler {

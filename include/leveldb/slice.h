@@ -24,6 +24,7 @@
 
 namespace leveldb {
 
+//! 非线程安全
 class LEVELDB_EXPORT Slice {
  public:
   // Create an empty slice.
@@ -81,6 +82,7 @@ class LEVELDB_EXPORT Slice {
   int compare(const Slice& b) const;
 
   // Return true iff "x" is a prefix of "*this"
+  //! memcmp 比较 s1 和 s1 前 n 的字节是否相同，相同返回0
   bool starts_with(const Slice& x) const {
     return ((size_ >= x.size_) && (memcmp(data_, x.data_, x.size_) == 0));
   }
